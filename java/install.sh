@@ -40,12 +40,12 @@ function confirm() {
 
 
 function remote() {
-    wget --no-check-certificate --no-cookies --header="Cookie: oraclelicense=accept-securebackup-cookie" -O /tmp/jdk-8u171-linux-x64.tar.gz $jdk_remote_url
+    wget --no-check-certificate --no-cookies --header="Cookie: oraclelicense=accept-securebackup-cookie" -O /tmp/jdk-8u171-linux-x64.tar.gz $java_jdk_remote_url
 
 }
 
 function local() {
-	java_dist=${jdk_local_dist}
+	java_dist=${java_jdk_local_dist}
 	java_dir=${java_dir}
 
 	if [[ ! $(fileExists ${java_dist}) -gt 0 ]]; then
@@ -68,7 +68,7 @@ function local() {
 		echo "Java distribution must be a valid tar.gz file."
 		exit 1
 	fi
-		#Check whether unzip command exsits
+	#Check whether unzip command exsits
 	if ! command -v unzip >/dev/null  2>&1; then
 		red "Please install unzip extension."
 		exit 1

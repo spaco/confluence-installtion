@@ -1,30 +1,65 @@
 #!/bin/bash
-source confluence.conf
 
-function usage() {
-    echo ""
-    echo "This script will not download the Java distribution. You must download JDK tar.gz distribution. Then use this script to install it."
-    echo "Usage: "
-    echo "install-java.sh -f <java_dist> [-p <java_dir>]"
-    echo ""
-    echo "-f: The jdk tar.gz file."
-    echo "-p: Java installation directory. Default: $default_java_dir."
-    echo "-h: Display this help and exit."
-    echo ""
+source ../utils/terminal-font-color.sh
+source ../.env
+
+confluence_install_from=${confluence_install_from}
+
+function remote() {
+	confluence_saved_dir=${confluence_remote_saved_dir}
+	confluence_remote_download_url=${confluence_remote_download_url}
+	confluence_dir=${confluence_dir}
+
+	# Validate download dist directory
+	if [[ ! -f ${confluence_saved_dir} ]]; then
+		red "Please specify a valid saved directory : ${confluence_saved_dir}"
+		if (confirm "Do you want create saved directory ?"); then
+			mkdir -p ${confluence_saved_dir}
+		else
+			red "Confluence install failed !"
+			exit 1
+		fi
+	fi
+	# Validate installation directory
+	if [[ ! -f ${confluence_dir} ]]; then
+		red "Please specify a valid installation directory : ${confluence_dir}"
+		if (confirm "Do you want create installation directory ?"); then
+			mkdir -p ${confluence_dir}
+		else
+			red "Confluence install failed !"
+			exit 1
+		fi
+	fi
+
+	wget ${confluence_remote_download_url} -O confluence.bin -P ${confluence_dir}
+
 }
 
-
-usage
+function local() {
+    echo local
+}
+case ${confluence_install_from} in
+	remote)
+		green "Set Up for Remote Installation..."
+		remote
+		;;
+	local)
+		green "Set Up for Local Installation..."
+		local
+		;;
+	*)
+		red "Sorry, This method is not supported..."
+		;;
+esac
 
 
 exit
+green "JAVA has been successfully installed"
 
 mkdir -p $SAVE_PATH
 cd $SAVE_PATH
 wget $DOWNLOAD_URL confluence.bin
 ./confluence.bin
-
-
 
 
 exit

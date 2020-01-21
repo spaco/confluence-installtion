@@ -15,3 +15,7 @@ function directoryExists() {
   		echo 0
 	fi
 }
+
+function appDir() {
+    echo $(cd `dirname $0`; pwd)
+}
