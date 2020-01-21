@@ -94,12 +94,12 @@ function local() {
 		tar -xof $java_dist -C $java_dir
 		green "JDK is extracted to $extracted_dirname"
 	else
-		red "WARN: JDK was not extracted to $java_dir. There is an existing directory with name $java_dir."
+		red "WARN: JDK was not extracted to $java_dir. There is an existing directory with name $java_dir"
 		exit 1
 	fi
 
 	if [[ ! -f "${extracted_dirname}/bin/java" ]]; then
-		red "ERROR: The path $extracted_dirname is not a valid Java installation."
+		red "ERROR: The path $extracted_dirname is not a valid Java installation"
 		exit 1
 	fi
 
@@ -112,15 +112,15 @@ function local() {
 		fi
 
 		if grep -q "export JRE_HOME=.*" $HOME/.bashrc; then
-			sed -i "s|export JRE_HOME=.*|export JRE_HOME= "${JAVA_HOME}/jre"|" $HOME/.bashrc
+			sed -i "s|export JRE_HOME=.*|export JRE_HOME= '${JAVA_HOME}/jre'|" $HOME/.bashrc
 		else
-			echo "export JRE_HOME="${JAVA_HOME}/jre"" >>$HOME/.bashrc
+			echo "export JRE_HOME='${JAVA_HOME}/jre'" >>$HOME/.bashrc
 		fi
 
 		if grep -q "export PATH=.*" $HOME/.bashrc; then
-			sed -i "s|export PATH=.*|export JRE_HOME= "${JAVA_HOME}/bin:$PATH"|" $HOME/.bashrc
+			sed -i "s|export PATH=.*|export JRE_HOME= '${JAVA_HOME}/bin:$PATH'|" $HOME/.bashrc
 		else
-			echo "export PATH="${JAVA_HOME}/bin:$PATH"" >>$HOME/.bashrc
+			echo "export PATH='${JAVA_HOME}/bin:$PATH'" >>$HOME/.bashrc
 		fi
 
 		source $HOME/.bashrc
