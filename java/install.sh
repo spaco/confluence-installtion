@@ -118,7 +118,7 @@ function local() {
 		fi
 
 		if grep -q "export PATH=.*" $HOME/.bashrc; then
-			sed -i "s|export PATH=.*|export JRE_HOME= '${JAVA_HOME}/bin:$PATH'|" $HOME/.bashrc
+			sed -i "s|export PATH=.*|export PATH= '${JAVA_HOME}/bin:$PATH'|" $HOME/.bashrc
 		else
 			echo "export PATH='${JAVA_HOME}/bin:$PATH'" >>$HOME/.bashrc
 		fi
