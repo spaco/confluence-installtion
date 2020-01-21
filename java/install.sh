@@ -45,7 +45,7 @@ function remote() {
 }
 
 function local() {
-	java_dist=${java_local_dist}
+	java_dist=${jdk_local_dist}
 	java_dir=${java_dir}
 
 	if [[ ! $(fileExists ${java_dist}) -gt 0 ]]; then
