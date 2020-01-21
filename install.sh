@@ -1,7 +1,8 @@
 #!/bin/bash
 
-source utils/terminal-font-color.sh
-source utils/filesystem.sh
+source ./utils/terminal-font-color.sh
+source ./utils/filesystem.sh
+source ./utils/reply.sh
 source .env
 
 if (confirm "Do you want Install JAVA ?"); then
