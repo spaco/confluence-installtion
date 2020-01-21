@@ -7,7 +7,8 @@ source .env
 
 if (confirm "Do you want Install JAVA ?"); then
 	green "Installing JAVA ..."
-	./java/install.sh
+	cd java
+	./install.sh
 fi
 
 if (confirm "Do you want Install MySQL ?"); then
