@@ -103,7 +103,7 @@ function local() {
 		exit 1
 	fi
 
-	# Set JAVA_HOME environment
+	# Set JAVA environment variable
 	if (confirm "Do you want to set JAVA environment variable in $HOME/.bashrc?"); then
 		if grep -q "export JAVA_HOME=.*" $HOME/.bashrc; then
 			sed -i "s|export JAVA_HOME=.*|export JAVA_HOME=$extracted_dirname|" $HOME/.bashrc
@@ -141,6 +141,7 @@ case ${java_install_from} in
 		;;
  esac
 
+green "JAVA has been successfully installed"
 
 
 
