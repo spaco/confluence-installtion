@@ -31,7 +31,7 @@ function remote() {
 		fi
 	fi
 
-	wget ${confluence_remote_download_url} -O confluence.bin -P ${confluence_dir}
+	wget ${confluence_remote_download_url} -O ${confluence_dir}/confluence.bin
 
 }
 
