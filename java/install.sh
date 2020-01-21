@@ -52,13 +52,15 @@ function local() {
 		red "Please specify the JDK file."
 		exit 1
 	fi
-#	# Create the default directory if user has not specified any other path
-#if [[ $java_dir == $default_java_dir ]]; then
-#    mkdir -p $java_dir
-#fi
+
 	if [[ ! $(directoryExists ${java_dir}) -gt 0 ]]; then
 	 	red "Please specify a valid Java installation directory : ${java_dir}"
-		exit 1
+
+	 	if (confirm "Do you want create Java installation directory ?"); then
+	 		mkdir -p $java_dir
+	 	else
+   			exit 1
+		fi
 	fi
 	# Validate Java Distribution
 	java_dist_filename=$(basename $java_dist)
