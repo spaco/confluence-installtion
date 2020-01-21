@@ -104,12 +104,25 @@ function local() {
 	fi
 
 	# Set JAVA_HOME environment
-	if (confirm "Do you want to set JAVA_HOME environment variable in $HOME/.bashrc?"); then
+	if (confirm "Do you want to set JAVA environment variable in $HOME/.bashrc?"); then
 		if grep -q "export JAVA_HOME=.*" $HOME/.bashrc; then
 			sed -i "s|export JAVA_HOME=.*|export JAVA_HOME=$extracted_dirname|" $HOME/.bashrc
 		else
 			echo "export JAVA_HOME=$extracted_dirname" >>$HOME/.bashrc
 		fi
+
+		if grep -q "export JRE_HOME=.*" $HOME/.bashrc; then
+			sed -i "s|export JRE_HOME=.*|export JRE_HOME= "${JAVA_HOME}/jre"|" $HOME/.bashrc
+		else
+			echo "export JRE_HOME="${JAVA_HOME}/jre"" >>$HOME/.bashrc
+		fi
+
+		if grep -q "export PATH=.*" $HOME/.bashrc; then
+			sed -i "s|export PATH=.*|export JRE_HOME= "${JAVA_HOME}/bin:$PATH"|" $HOME/.bashrc
+		else
+			echo "export PATH="${JAVA_HOME}/bin:$PATH"" >>$HOME/.bashrc
+		fi
+
 		source $HOME/.bashrc
 	fi
 }
