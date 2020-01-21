@@ -4,6 +4,15 @@ source utils/terminal-font-color.sh
 source utils/filesystem.sh
 source .env
 
-green "Installing JAVA ..."
+if (confirm "Do you want Install JAVA ?"); then
+	green "Installing JAVA ..."
+	./java/install.sh
+fi
 
-./java/install.sh
+if (confirm "Do you want Install MySQL ?"); then
+	green "Installing MySQL ..."
+#	./java/install.sh
+fi
+
+
+

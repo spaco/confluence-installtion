@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e139af82-ff0c-44d3-9cae-bd11ce75ffc5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/reply.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/install.sh" beforeDir="false" afterPath="$PROJECT_DIR$/install.sh" afterDir="false" />
     </list>
@@ -62,8 +62,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/java/install.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="76" column="21" selection-start-line="76" selection-start-column="11" selection-end-line="76" selection-end-column="21" />
+            <state relative-caret-position="177">
+              <caret line="58" selection-start-line="58" selection-end-line="62" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -71,8 +71,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/install.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+            <state relative-caret-position="273">
+              <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/reply.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="182">
+              <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -86,6 +95,7 @@
       <find>config</find>
       <find>confit</find>
       <find>install</find>
+      <find>confi</find>
     </findStrings>
     <replaceStrings>
       <replace>java_dist</replace>
@@ -111,15 +121,16 @@
         <option value="$PROJECT_DIR$/java/install.sh" />
         <option value="$PROJECT_DIR$/.env.example" />
         <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/utils/reply.sh" />
         <option value="$PROJECT_DIR$/install.sh" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1920" />
-    <option name="y" value="28" />
+    <option name="x" value="50" />
+    <option name="y" value="23" />
     <option name="width" value="1920" />
-    <option name="height" value="975" />
+    <option name="height" value="964" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -137,6 +148,11 @@
               <item name="confluence-installtion" type="b2602c69:ProjectViewProjectNode" />
               <item name="confluence-installtion" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="confluence-installtion" type="b2602c69:ProjectViewProjectNode" />
+              <item name="confluence-installtion" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -189,7 +205,7 @@
       <workItem from="1579481734836" duration="11931000" />
       <workItem from="1579502393894" duration="4137000" />
       <workItem from="1579506967013" duration="6142000" />
-      <workItem from="1579568374911" duration="6257000" />
+      <workItem from="1579568374911" duration="6535000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1579430130827</created>
@@ -233,14 +249,21 @@
       <option name="project" value="LOCAL" />
       <updated>1579576750311</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Init">
+      <created>1579577058012</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1579577058012</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32521000" />
+    <option name="totallyTimeSpent" value="32799000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="28" width="1920" height="975" extended-state="0" />
+    <frame x="50" y="23" width="1920" height="964" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2603834" />
@@ -256,7 +279,7 @@
       <window_info anchor="bottom" id="Docker" order="7" weight="0.3295583" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.34201586" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.34633029" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -352,15 +375,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/java/install.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="76" column="21" selection-start-line="76" selection-start-column="11" selection-end-line="76" selection-end-column="21" />
+        <state relative-caret-position="177">
+          <caret line="58" selection-start-line="58" selection-end-line="62" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/reply.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/install.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        <state relative-caret-position="273">
+          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
         </state>
       </provider>
     </entry>
