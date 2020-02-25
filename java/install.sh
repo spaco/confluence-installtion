@@ -2,7 +2,8 @@
 
 source ../utils/terminal-font-color.sh
 source ../utils/filesystem.sh
-source ../.env
+source ../utils/reply.sh
+source ../env.conf
 
 function info() {
 	echo ""
@@ -10,18 +11,6 @@ function info() {
 	echo "JAVA dir :$java_dir"
 }
 
-function confirm() {
-    # call with a prompt string or use a default
-    read -r -p "${1:-Are you sure?} [y/N] " response
-    case $response in
-    [yY][eE][sS] | [yY])
-        true
-        ;;
-    *)
-        false
-        ;;
-    esac
-}
 
 #function config() {
 #    # 获取参数中的段
@@ -40,12 +29,12 @@ function confirm() {
 
 
 function remote() {
-    wget --no-check-certificate --no-cookies --header="Cookie: oraclelicense=accept-securebackup-cookie" -O /tmp/jdk-8u171-linux-x64.tar.gz $java_jdk_remote_url
-
+    wget --no-check-certificate --no-cookies --header="Cookie: oraclelicense=accept-securebackup-cookie" -O /tmp/jdk-8u171-linux-x64.tar.gz ${java_remote_jdk_url}
 }
 
 function local() {
-	java_dist=${java_jdk_local_dist}
+
+	java_dist=${java_local_jdk_path}
 	java_dir=${java_dir}
 
 	if [[ ! $(fileExists ${java_dist}) -gt 0 ]]; then
@@ -86,7 +75,6 @@ function local() {
 	# JDK Directory with version
 	jdk_dir="$(echo $java_exec | cut -f1 -d"/")"
 	extracted_dirname=$java_dir"/"$jdk_dir
-
 
 	# Extract Java Distribution
 	if [[ ! -d $extracted_dirname ]]; then
@@ -138,6 +126,7 @@ case ${java_install_from} in
 		;;
 	*)
 		red "Sorry, This method is not supported..."
+		exit 1
 		;;
  esac
 
